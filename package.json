@@ -1,0 +1,21 @@
+{
+  "name": "wa-shipyard",
+  "version": "0.0.1",
+  "description": "Worlds Adrift Ship Calculator",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.16.2"
+  },
+  "engines": {
+    "node": "6.10.x"
+  },
+  "license": "MIT",
+  "keywords": [
+    "node",
+    "glitch",
+    "express"
+  ]
+}
