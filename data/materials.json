@@ -1,0 +1,39 @@
+{
+  "metal": {
+    "aluminium": 0.26,
+    "titanium": 0.30,
+    "tin": 0.34,
+    "iron": 0.38,
+    "steel": 0.40,
+    "bronze": 0.42,
+    "nickel": 0.46,
+    "copper": 0.50,
+    "silver": 0.55,
+    "lead": 0.60,
+    "gold": 0.69,
+    "tungsten": 0.8
+  },
+  "wood": {
+    "cedar": 0.20,
+    "hemlock": 0.23,
+    "chestnut": 0.25,
+    "elm": 0.29,
+    "birch": 0.32,
+    "ash": 0.35,
+    "oak": 0.38,
+    "palm": 0.41
+  },
+  "other": {
+    "fuel": 0.2,
+    "shard": 0.2
+  },
+  "boost": {
+    "tier1": 1,
+    "teir2": 0.875,
+    "tier3": 0.7777,
+    "tier4": 0.7083,
+    "deck": 0.75,
+    "instrument": 0.1,
+    "small": 0.5
+  }
+}
