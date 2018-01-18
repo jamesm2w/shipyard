@@ -1,0 +1,610 @@
+/* ------------------------------
+       Column Styling
+------------------------------ */
+* {box-sizing: border-box;}
+
+.col-1 {width: 6.33%; margin-left: 1%; margin-right: 1%;}
+.col-2 {width: 14.66%; margin-left: 1%; margin-right: 1%;}
+.col-3 {width: 23%; margin-left: 1%; margin-right: 1%;}
+.col-4 {width: 31.33%; margin-left: 1%; margin-right: 1%;}
+.col-5 {width: 39.66%; margin-left: 1%; margin-right: 1%;}
+.col-6 {width: 48%; margin-left: 1%; margin-right: 1%;}
+.col-7 {width: 56.33%; margin-left: 1%; margin-right: 1%;}
+.col-8 {width: 64.66%; margin-left: 1%; margin-right: 1%;}
+.col-9 {width: 73%; margin-left: 1%; margin-right: 1%;}
+.col-10 {width: 81.33%; margin-left: 1%; margin-right: 1%;}
+.col-11 {width: 89.66%; margin-left: 1%; margin-right: 1%;}
+.col-12 {width: 98%; margin-left: 1%; margin-right: 1%;}
+
+[class*="col-"] {float: left; padding: 15px; }
+@media only screen and (max-width: 768px) {[class*="col-"] {width: 100%; margin-top: 5px; margin-bottom: 5px; }}
+.row::after {content: ""; clear: both; display: table; }
+.container {margin: 0 10px 0 10px; }
+
+/* ------------------------------
+       Main Page CSS Styles 
+------------------------------ */
+html { 
+  background: url(https://cdn.glitch.com/207b7d3e-84f3-40e3-b2ba-fb11865124a8%2FLoryConceptArt%20-%20Copy.jpg?1498308029567) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+body {
+  margin: 0 0 0 0;
+  font-family: 'Noto Sans', sans-serif;
+  color: #ffe5c4;
+}
+a {color: #ffe5c4;}
+
+/* ----------------------------
+       Navbar Styling
+---------------------------- */
+.nav {
+  overflow: hidden;
+  background-color: #4f4141;
+  margin-bottom: 10px;
+}
+
+.nav-logo {
+  display: block;
+  float: left;
+  margin-top: 4px;
+  padding-left: 25px;
+  padding-right: 25px;
+  height: 40px;
+}
+
+.nav-link {
+  float: left;
+  display: block;
+  color: #ffe5c4;
+  text-align: center;
+  padding: 15px 24px 15px 24px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+@media screen and (max-width: 600px) {
+  .nav-link, .nav-server-container, .nav-server-population, .nav-server-status {
+    display: none !important;
+  }
+  .nav-logo {
+    margin: 0 auto;
+    width: 40px;
+    padding: 0 0 0 0;
+    display: block;
+    float: none;
+  }
+  .nav-logo-wrapper {
+    width: 100%;
+    display: block;
+    height: 40px;
+  }
+  #mobile-nav-opener {
+    display: inline-block !important;
+  }
+}
+
+.mobile-nav {
+    height: 100vh;
+    width: 0;
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    background-color: rgb(79, 65, 65);
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    border-bottom-color: rgb(224, 176, 132);
+    border-bottom-style: solid;
+    border-bottom-width: 5px;
+    border-top-color: rgb(224, 176, 132);
+    border-top-style: solid;
+    border-top-width: 5px;
+}
+
+.mobile-nav .mobile-nav-link {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #ffe5c4;
+    display: block;
+    transition: 0.3s;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.mobile-nav .mobile-nav-link:hover {
+    color: #f1f1f1;
+}
+
+.mobile-nav-close {
+    text-decoration: none;
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+.mobile-nav-status-main {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #ffe5c4;
+    display: block;
+    transition: 0.3s;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.mobile-nav-status-population {
+  padding-left: 32px;
+  padding-bottom: 8px;
+  font-size: 12px;
+  transition: 0.3s;
+}
+
+.mobile-nav-status-circle {
+  border-radius: 50%; 
+  display: inline-block; 
+  background-color: #5f5252; 
+  width: 25px; 
+  height: 25px;
+  transition: 0.3s;
+}
+
+
+@media screen and (max-height: 450px) {
+  .mobile-nav {padding-top: 15px;}
+  .mobile-nav .mobile-nav-link, .mobile-nav-status-main {font-size: 18px;}
+  .mobile-nav-status-population {font-size: 10px;}
+}
+
+.right {
+  float: right;
+}
+
+.left {
+  float: left;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.circle {
+  border-radius: 50%;
+  width: 30px;
+  height: 30px; 
+}
+.spinning {
+  animation-name: spin; 
+  animation-duration: 3s; /* 3 seconds */
+  animation-iteration-count: infinite; 
+  animation-timing-function: linear;
+}
+.maintenance {
+  background-image: -moz-radial-gradient(45px 45px 45deg, circle cover,#d50000 10%, #f44336 90%, #ef5350 80%);
+  background-image: -webkit-radial-gradient(45px 45px, circle cover, #d50000,#ef5350);
+  background-image: radial-gradient(45px 45px 45deg, circle cover, #d50000 10%, #f44336 90%,#ef5350 80%);
+}
+.up {
+  background-image: -moz-radial-gradient(45px 45px 45deg, circle cover,#33691e 33%, #8bc34a 33%, #76ff03 34%);
+  background-image: -webkit-radial-gradient(45px 45px, circle cover, #33691e,#76ff03);
+  background-image: radial-gradient(45px 45px 45deg, circle cover, #33691e 33%, #8bc34a 33%,#76ff03 34%);
+}
+
+.nav-server-container {
+  display: inline-block; 
+  padding-right: 10px;
+  margin-top: 10px;
+}
+
+.nav-server-population {
+  font-weight:700; 
+  text-transform:uppercase;
+}
+
+.nav-server-status {
+  border-radius: 50%; 
+  display: inline-block; 
+  background-color: #5f5252; 
+  width: 15px; 
+  height: 15px;
+}
+
+.nav-link:hover {
+  background-color: #c4a7a7;
+}
+
+.nav-link.active {
+  background-color: #c4a7a7;
+}
+
+.mobile-nav-link.active {
+  background-color: #c4a7a7;
+}
+
+/*
+----------------------------------------------
+           WA UI Styling Approximation
+----------------------------------------------
+*/
+.wa-panel {
+  background-color: rgba(79, 65, 65, 0.8);
+  border-bottom-color: rgb(224, 176, 132);
+  border-bottom-style: solid;
+  border-bottom-width: 5px;
+  border-top-color: rgb(224, 176, 132);
+  border-top-style: solid;
+  border-top-width: 5px;
+  padding: 10px 10px 10px 10px;
+}
+
+.wa-header {
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 1px;
+  font-size: 15px;
+}
+
+.wa-title {
+  text-transform: uppercase;
+  font-weight: normal;
+  letter-spacing: 2px;
+}
+
+/*
+----------------------------------------------
+           Form & Input Styles
+----------------------------------------------
+*/
+.wa-input {
+  background-color: rgba(0, 0, 0, 0.3);
+  border: transparent;
+  box-sizing: border-box;
+  color: #ffe5c4;
+  font-family: "Noto Sans";
+  font-size: 14px;
+  height: 34px;
+  line-height: 19.6px;
+  outline-color: rgb(255, 229, 196);
+  outline-style: none;
+  outline-width: 0px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 5px;
+  text-align: start;
+  -webkit-appearance: none;
+  -webkit-rtl-ordering: logical;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-border-image: none;
+}
+
+
+.wa-dropdown__select{
+	font-size: inherit; /* inherit size from .custom-dropdown */
+	padding: .5em; /* add some space*/
+	margin: 0; /* remove default margins */
+}
+
+.wa-dropdown__select--main {
+	background-color: rgba(0, 0, 0, 0.3);
+	color: #ffe5c4;
+  border: transparent;
+}
+
+@supports (pointer-events: none) and ((-webkit-appearance: none) or (-moz-appearance: none) or (appearance: none)) {
+
+	.wa-dropdown {
+		position: relative;
+		display: inline-block;
+		vertical-align: middle;
+	}
+
+	.wa-dropdown__select {
+		padding-right: 2.6em; /* accommodate with the pseudo elements for the dropdown arrow */
+		border: 0;
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		appearance: none;    
+	}
+
+	.wa-dropdown::before, .wa-dropdown::after {
+		content: "";
+		position: absolute;
+		pointer-events: none;
+	}
+
+	.wa-dropdown::after { /*  Custom dropdown arrow */
+		content: "\25BC";
+		height: 1em;
+		font-size: .625em;
+		line-height: 1;
+		right: 0.7em;
+		top: 50%; margin-top: -.5em;
+	}
+
+	.wa-dropdown--material::before { /*  Custom dropdown arrow cover */
+	  background-image: url("https://cdn.glitch.com/207b7d3e-84f3-40e3-b2ba-fb11865124a8%2FWoodMetalResource.png?1515827616899");
+	  background-repeat: no-repeat;
+	  background-size: 2.1em 2.1em;
+	  background-position: center;
+		width: 2.2em;
+		right: 0; top: 0; bottom: 0;
+		border-radius: 0;
+	}
+	
+	.wa-dropdown--material.wood::before {
+	  background-image: url("https://cdn.glitch.com/207b7d3e-84f3-40e3-b2ba-fb11865124a8%2FWoodResource.PNG?1515827628028");
+	}
+	
+	.wa-dropdown--material.metal::before {
+	  background-image: url("https://cdn.glitch.com/207b7d3e-84f3-40e3-b2ba-fb11865124a8%2FMetalResource.png?1515826820099");
+	}
+
+	.wa-dropdown__select[disabled] {
+		color: rgba(0,0,0,.3);
+	}
+
+	.wa-dropdown.wa-dropdown--disabled::after {
+		color: rgba(0,0,0,.1);
+	}
+
+	/* White dropdown style */
+	.wa-dropdown--main::before {
+		background-color: rgba(0, 0, 0, 0.3);
+		border-left: 1px solid rgba(0,0,0,.1);
+	}
+
+	.wa-dropdown--main::after {
+		color: #ffe5c4;
+		font-size: 1em;
+	}
+ 
+}
+/*
+-----------------------------------------------------
+                Accordian Styling
+-----------------------------------------------------
+*/
+.accordion {
+    background-color: #B19E9E;
+    color: #ffe5c4;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.4s;
+}
+
+.active, .accordion:hover {
+    background-color: #A08989;
+}
+
+.accordion:after {
+    content: '\002B';
+    color: #ffe5c4;
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+}
+
+.accordion.active:after {
+    content: "\2212";
+
+}
+
+.panel {
+    padding: 0 18px;
+    background-color: #4f4141;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+}
+
+.toggle-panel {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  content: "\002B";
+}
+
+.toggle-panel.active {
+  content: "\2212";
+}
+
+/* 
+-----------------------------------------------------
+                  Modal Styles
+-----------------------------------------------------
+*/
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 2; /* Sit on top */
+    padding-top: 10px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.7); /* Black w/ opacity */
+}
+
+/* Modal Content - By default will be a wa-panel style */
+.modal-content {
+    margin: auto;
+    padding: 20px;
+    position: relative;
+    width: 100%;
+}
+
+.modal-content:after {
+  content: "";
+  display: block;
+}
+
+
+/* The Close Button */
+.g1close {
+    color: #f44336;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.g1close:hover,
+.g1close:focus {
+    color: #c62828;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/*
+Utility section styles
+*/
+
+div.section {
+    transition: opacity 1s ease-out;
+    opacity: 0; 
+    height: 0;
+    overflow: hidden;
+}
+div.activePage {
+    opacity: 1;
+    height: auto;
+}
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+/*
+Schematic Mock-Up Styles
+*/
+.schem-name {
+ margin-bottom:5px; 
+ width: 90%; 
+}
+
+.schem-upper {
+  background-color: rgba(0,0,0,0.4); 
+  margin-bottom:10px;
+}
+
+.material-section {
+  padding: 5% 0;
+}
+
+.material-img {
+  float:left; 
+  margin-right: 15px;
+  width: 40px;
+  height: 40px;
+}
+
+.material-detail {
+  display: block;
+}
+
+.schem-detail {
+  background-color: rgba(0,0,0,0.3); margin-bottom: 5px;
+}
+.schem-lower {
+  background-color: rgba(0,0,0,0.4); padding: 4px;
+}
+.stat-bar-wrapper {
+  background-color: #776464; width: 100%; position: relative; height: 20px; margin-bottom: 2px;
+}
+.stat-bar-meter {
+  background-color: #668ec3; height: 20px; width: 90%; position: absolute;
+}
+.stat-bar-meter.width0 {
+  width: 0;
+}
+.stat-bar-label.left {
+  z-index:1; float: left; margin-left: 10px; position: relative;
+}
+.stat-bar-label.right {
+   z-index:1; float: right; margin-right: 10px; position: relative;
+}
+
+.hidden {
+  display: none;
+}
+
+.add-btn {
+  border: 2px solid transparent;
+  cursor: pointer;
+  background-color: #c4a7a7;
+  background-color: rgba(196,167,167, 0.4);
+  box-shadow: none;
+  border-radius: 0;
+  color: #ffe5c4;
+}
+
+#snackbar {
+  visibility: hidden;
+  min-width: 250px;
+  margin-left: -125px;
+  color: #ffe5c4;
+  background-color: rgba(79, 65, 65, 0.8);
+  border-bottom-color: rgb(224, 176, 132);
+  border-bottom-style: solid;
+  border-bottom-width: 5px;
+  border-top-color: rgb(224, 176, 132);
+  border-top-style: solid;
+  border-top-width: 5px;
+  text-align: center;
+  border-radius: 2px;
+  padding: 16px;
+  position: fixed;
+  z-index: 3;
+  left: 50%;
+  bottom: 30px;
+  font-size: 17px;
+}
+
+#snackbar.show {
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@-webkit-keyframes fadein {
+    from {bottom: 0; opacity: 0;} 
+    to {bottom: 30px; opacity: 1;}
+}
+
+@keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+    from {bottom: 30px; opacity: 1;} 
+    to {bottom: 0; opacity: 0;}
+}
+
+@keyframes fadeout {
+    from {bottom: 30px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
+}
