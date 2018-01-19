@@ -48,21 +48,6 @@ function switchPage(next) {
   closeNav();
 }
 
-function setHeader(xhr) {
-  xhr.setRequestHeader('x-origin', 'bringbackthestreams');
-}
-
-function getdata() {
-  $.ajax({
-    url: "https://wa.glitch.me/api/now",
-    method: "GET",
-    dataType: 'json',
-    success: proccessData,
-    error: function(data) { alert(data) },
-    beforeSend: setHeader
-  });
-}
-
 function proccessData(data){
   $("#servers").empty();
   $.each(data, function (serverID, status){
@@ -85,5 +70,25 @@ function closeNav() {
   document.getElementById("mobileSidenav").style.width = "0";
 }
 
+function checkAPI(){
+  $.ajax({
+    "url":"https://wa.glitch.me/api",
+    "success": function (data) {
+      console.log(data);
+      $.each(data, function (server, status) {
+        $("#"+server+"-pop").text(status[1]);
+        $("#"+server+"-status").removeClass("maintenance up").addClass(status[0]);
+
+        $("#mobile-"+server+"-pop").text(status[1]);
+        $("#mobile-"+server+"-status").removeClass("maintenance up").addClass(status[0]);
+      });
+    },
+    "error": function (err) {
+      throw err;
+    }
+  });
+}
+
 getdata();
-setInterval(getdata(), 30000);
+checkAPI();
+setInterval(checkAPI(), 30000);
