@@ -6,10 +6,10 @@ var boosts;
 var currentship = [
 {"id": "0","type": "helm","name": "Helm","materials": [{"name": "Casing","amount": 80,"type": "woodmetal","mat": "aluminium"},{"name": "Mechanical Internals","amount": 40,"type": "metal","mat": "aluminium"},{"name": "Flight Stick","amount": 20,"type": "metal","mat": "aluminium"}],"stats": [{"name": "Resilience","value": 25},{"name": "Weight","value": 36.4,"bar": false}]},
 {"id": "1","type": "helm_of_the_claw","name": "Helm of the Claw","materials": [{"name": "Casing","amount": 80,"type": "metal","mat": "aluminium"},{"name": "Mechanical Internals","amount": 40,"type": "metal","mat": "aluminium"},{"name": "Flight Stick","amount": 20,"type": "metal","mat": "aluminium"}],"stats": [{"name": "Resilience","value": 25},{"name": "Weight","value": 36.4,"bar": false}]}];
-$.getJSON("../util/data/materials.json", function (materialdata) {
+$.getJSON("../data/materials.json", function (materialdata) {
   boosts = materialdata
 
-  $.getJSON("../util/data/schematics.json", function(schdata) {
+  $.getJSON("../data/schematics.json", function(schdata) {
     schematicdata = schdata;
 
     // Load up the saved ship parts
