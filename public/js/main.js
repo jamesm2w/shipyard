@@ -8,58 +8,11 @@ function getQueryVariable (variable) {
   return(false);
 }
 
-function cFs(status){
-  if(status == "up"){
-    return "#76ff03"; // Server is ONLINE
-  } else if (status == "maintenance") {
-    return "#d50000";
-  } else if (status == "low") {
-    return "#fff176"; //Low Population
-  } else if (status == "medium") {
-    return "#ffc107"; // Medium Population
-  } else if (status == "high") {
-    return "#e65100";
-  } else {
-    return "#ff5722"; // Some other value (deep orange)
-  }
-}
-
 function showSnackbar(message) {
     var x = document.getElementById("snackbar");
     x.innerText = message;
     x.className = "show";
     setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
-}
-
-function switchPage(next) {
-  let nextPage = document.getElementById(next), prevPage = document.querySelector(".activePage");
-  if (nextPage.id == prevPage.id) {
-    return false;
-  }
-  
-  document.getElementById("mobile-nav-" + next).className += " active";
-  document.getElementById("mobile-nav-" + prevPage.id).className = "mobile-nav-link";
-  document.getElementById("nav-" + next).className += " active";
-  document.getElementById("nav-" + prevPage.id).className = "nav-link";
-  
-  nextPage.className += " activePage";
-  prevPage.className = "section";
-
-  closeNav();
-}
-
-function proccessData(data){
-  $("#servers").empty();
-  $.each(data, function (serverID, status){
-    $("#servers").append("\
-  <div class='col-3 wa-panel' id='"+serverID+"'>\
-    <h3 class='wa-header'>"+status["name"]+"</h3>\
-    <p>STATUS: <span style='color: "+cFs(status["status"])+"; text-transform: uppercase; font-weight: 700;'>"+status["status"]+"</span><br> POPULATION: <span style='color: "+cFs(status["population"])+"; text-transform: uppercase; font-weight: 700;'>"+status["population"]+"</span></p>\
-  </div>\
-  ");
-  });
-  let datetime = new Date().toLocaleString();
-  $("#last-checked").text(datetime);
 }
 
 function openNav() {
@@ -71,24 +24,30 @@ function closeNav() {
 }
 
 function checkAPI(){
-  $.ajax({
-    "url":"https://wa.glitch.me/api",
-    "success": function (data) {
-      console.log(data);
-      $.each(data, function (server, status) {
-        $("#"+server+"-pop").text(status[1]);
-        $("#"+server+"-status").removeClass("maintenance up").addClass(status[0]);
-
-        $("#mobile-"+server+"-pop").text(status[1]);
-        $("#mobile-"+server+"-status").removeClass("maintenance up").addClass(status[0]);
+  var request = new XMLHttpRequest();
+  request.open('GET', 'https://wa.glitch.me/api', true);
+  request.onload = () => {
+    if (request.status >= 200 && request.status < 400) {
+      var data = JSON.parse(request.responseText);
+      data.forEach((status, server) => {
+        document.querySelector("#"+server+"-pop").innerText = status[1];
+        let statusEl = document.querySelector("#"+server+"-status");
+        statusEl.classList.remove("maintenance", "up")
+        statusEl.classList.add(status[0]);
+        document.querySelector("#mobile-"+server+"-pop").innerText = status[1];
+        let mobileEl = document.querySelector("#mobile-"+server+"-status");
+        mobileEl.classList.remove("maintenance", "up");
+        mobileEl.classList.add(status[0]);
       });
-    },
-    "error": function (err) {
-      throw err;
+    } else {
+      console.log(request.responseText);
     }
-  });
+  };
+  request.onerror = () => {
+    console.log("Error with API request");
+  };
+  request.send();
 }
 
-getdata();
 checkAPI();
 setInterval(checkAPI(), 30000);
