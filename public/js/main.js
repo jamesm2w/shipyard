@@ -29,7 +29,8 @@ function checkAPI(){
   request.onload = function () {
     if (request.status >= 200 && request.status < 400) {
       var data = JSON.parse(request.responseText);
-      data.forEach(function (status, server) {
+      Object.keys(data).forEach(function (server) {
+        let status = data[server];
         document.querySelector("#"+server+"-pop").innerText = status[1];
         let statusEl = document.querySelector("#"+server+"-status");
         statusEl.classList.remove("maintenance", "up")
