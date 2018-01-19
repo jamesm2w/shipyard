@@ -35,10 +35,6 @@ function checkAPI(){
         let statusEl = document.querySelector("#"+server+"-status");
         statusEl.classList.remove("maintenance", "up")
         statusEl.classList.add(status[0]);
-        document.querySelector("#mobile-"+server+"-pop").innerText = status[1];
-        let mobileEl = document.querySelector("#mobile-"+server+"-status");
-        mobileEl.classList.remove("maintenance", "up");
-        mobileEl.classList.add(status[0]);
       });
     } else {
       console.log(request.responseText);
