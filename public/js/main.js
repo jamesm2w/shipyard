@@ -26,10 +26,10 @@ function closeNav() {
 function checkAPI(){
   var request = new XMLHttpRequest();
   request.open('GET', 'https://wa.glitch.me/api', true);
-  request.onload = () => {
+  request.onload = function () {
     if (request.status >= 200 && request.status < 400) {
       var data = JSON.parse(request.responseText);
-      data.forEach((status, server) => {
+      data.forEach(function (status, server) {
         document.querySelector("#"+server+"-pop").innerText = status[1];
         let statusEl = document.querySelector("#"+server+"-status");
         statusEl.classList.remove("maintenance", "up")
@@ -43,7 +43,7 @@ function checkAPI(){
       console.log(request.responseText);
     }
   };
-  request.onerror = () => {
+  request.onerror = function () {
     console.log("Error with API request");
   };
   request.send();
