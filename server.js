@@ -1,7 +1,7 @@
 var express = require('express');
 var app = express();
 
-app.use(express.static("util"));
+app.use(express.static("public"));
 
 // Simple root route
 app.get("/", function (request, response) {
