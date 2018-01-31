@@ -22,7 +22,8 @@
     "stats": [
       {
         "name": "Resilience",
-        "value": 25
+        "value": 25,
+        "listeners": [0]
       }
     ]
   },
@@ -49,7 +50,31 @@
     "stats": [
       {
         "name": "Resilience",
-        "value": 25
+        "value": 25,
+        "listeners": [0]
+      }
+    ]
+  },
+  "sail": {
+    "name": "Sail",
+    "description": "A Sail",
+    "materials": [
+      {
+        "name": "Mast",
+        "amount": 200,
+        "type": "wood"
+      }
+    ],
+    "stats": [
+      {
+        "name": "Resilience",
+        "value": 15,
+        "listeners": [0]
+      },
+      {
+        "name": "Another stat??",
+        "value": 99,
+        "listeners": [6]
       }
     ]
   }

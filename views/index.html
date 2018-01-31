@@ -14,39 +14,35 @@
     <div id="snackbar"></div>
     
     <div id="schematicModal" class="modal">
-     <div class="modal-content wa-panel schematic-mockup" style="width: 60%;">
+     <div class="modal-content wa-panel schematic-mockup" style="width: 70%;">
         <input placeholder="Schematic Name" id="schematic-name" class="wa-input schem-name" disabled style="width: 80%;">
-        <button style="display:inline-block; font-size: 24px; text-align: center; width: 9%; vertical-align: top;" class="wa-header add-btn" id="modal-edit-btn" onclick="modalEditMode(0)"><i class="fa fa-plus-circle" aria-hidden="true"></i></button>
+        <button style="display:inline-block; font-size: 24px; text-align: center; width: 9%; vertical-align: top;" class="wa-header add-btn" id="modal-edit-btn"><i class="fa fa-plus-circle" aria-hidden="true"></i></button>
         <button style="display:inline-block; font-size: 24px; text-align: center; width: 9%; vertical-align: top;" class="wa-header add-btn" onclick="closeModal();">&times;</button>
-        <div>
           <div class="row schem-upper">
           <div class="col-4">
             <div class="material-section hidden" id="material-0">
-              <img src="https://cdn.glitch.com/207b7d3e-84f3-40e3-b2ba-fb11865124a8%2FMetalResource.png?1515826820099" class="material-img">
-              <span class="material-detail" style="text-align: center; font-size: 1.5 vmax;" id="material-0-name" >Material Detail 0 <span class="wa-header material-detail" id="material-0-amount">&times; 100</span></span>
-              <span style="width: calc(100% - 45px);" class="wa-dropdown wa-dropdown--main hidden" id="material-0-dropdown">
-                <select class="wa-dropdown__select wa-dropdown__select--main" style="width: 100%;">
-                  <option>Something</option>
-                </select>
+              <img src="" class="material-img">
+              <span class="material-detail" style="text-align: center; font-size: 1.5 vmax;" id="material-0-name"></span>
+              <span style="width: 50%;" class="wa-dropdown wa-dropdown--main hidden" id="material-0-dropdown">
+                <select class="wa-dropdown__select wa-dropdown__select--main schematic-material-dropdown" style="width: 100%;"></select>
               </span>
+			  <input style="width: 25%; display:inline;" class="wa-input hidden" id="material-0-quality" type="hidden" step="1" min="1" max="10" placeholder="Q:">
             </div>
             <div class="material-section hidden" id="material-2">
-              <img src="https://cdn.glitch.com/207b7d3e-84f3-40e3-b2ba-fb11865124a8%2FMetalResource.png?1515826820099" class="material-img">
-              <span class="material-detail" style="text-align: center; font-size: 1.5 vmax;" id="material-2-name" >Material Detail 2 <span class="wa-header material-detail" id="material-2-amount">&times; 100</span></span>
-              <span style="width: calc(100% - 45px);" class=" wa-dropdown wa-dropdown--main hidden" id="material-2-dropdown">
-                <select class="wa-dropdown__select wa-dropdown__select--main" style="width: 100%;">
-                  <option>Something</option>
-                </select>
+              <img src="" class="material-img">
+              <span class="material-detail" style="text-align: center; font-size: 1.5 vmax;" id="material-2-name"></span>
+              <span style="width: 50%;" class=" wa-dropdown wa-dropdown--main hidden" id="material-2-dropdown">
+                <select class="wa-dropdown__select wa-dropdown__select--main schematic-material-dropdown" style="width: 100%;"></select>
               </span>
+			  <input style="width: 25%; display:inline;" class="wa-input hidden" id="material-2-quality" type="hidden" step="1" min="0" max="10" placeholder="Q:">
             </div>
             <div class="material-section hidden" id="material-4">
-              <img src="https://cdn.glitch.com/207b7d3e-84f3-40e3-b2ba-fb11865124a8%2FMetalResource.png?1515826820099" class="material-img">
-              <span class="material-detail" style="text-align: center; font-size: 1.5 vmax;" id="material-4-name" >Material Detail 4 <span class="wa-header material-detail" id="material-4-amount">&times; 100</span></span>
-              <span style="width: calc(100% - 45px);" class="wa-dropdown wa-dropdown--main hidden" id="material-4-dropdown">
-                <select class="wa-dropdown__select wa-dropdown__select--main" style="width: 100%;">
-                  <option>Something</option>
-                </select>
+              <img src="" class="material-img">
+              <span class="material-detail" style="text-align: center; font-size: 1.5 vmax;" id="material-4-name"></span>
+              <span style="width: 50%;" class="wa-dropdown wa-dropdown--main hidden" id="material-4-dropdown">
+                <select class="wa-dropdown__select wa-dropdown__select--main schematic-material-dropdown" style="width: 100%;"></select>
               </span>
+			  <input style="width: 25%; display:inline;" class="wa-input hidden" id="material-4-quality" type="hidden" step="1" min="0" max="10" placeholder="Q:">
             </div>
           </div>
           <div class="col-4">
@@ -54,29 +50,32 @@
               <div style="display:block; text-align: center; background-color: rgba(0,0,0,0.3); width: 100%; height: 100%;" id="schem-weight">0 kg</div>
           </div>
           <div class="col-4">
-            <div class="material-section hidden" id="material-1">
-              <img src="https://cdn.glitch.com/207b7d3e-84f3-40e3-b2ba-fb11865124a8%2FMetalResource.png?1515826820099" class="material-img">
-              <span class="material-detail" style="text-align: center; font-size: 1.5 vmax;" id="material-1-name" >Material Detail 1 <span class="wa-header material-detail" id="material-1-amount">&times; 100</span></span>
-              <span style="width: calc(100% - 45px);" class="hidden wa-dropdown wa-dropdown--main" id="material-1-dropdown">
-                    <select class="wa-dropdown__select wa-dropdown__select--main" style="width: 100%;"></select>
-                </span>
-            </div>
-            <div class="material-section hidden" id="material-3">
-              <img src="https://cdn.glitch.com/207b7d3e-84f3-40e3-b2ba-fb11865124a8%2FMetalResource.png?1515826820099" class="material-img">
-              <span class="material-detail" style="text-align: center; font-size: 1.5 vmax;" id="material-3-name" >Material Detail 3 <span class="wa-header material-detail" id="material-3-amount">&times; 100</span></span>
-              <span style="width: calc(100% - 45px);" class="hidden wa-dropdown wa-dropdown--main" id="material-3-dropdown">
-                    <select class="wa-dropdown__select wa-dropdown__select--main" style="width: 100%;"></select>
-                </span>
-            </div>
-            <div class="material-section hidden" id="material-5">
-              <img src="https://cdn.glitch.com/207b7d3e-84f3-40e3-b2ba-fb11865124a8%2FMetalResource.png?1515826820099" class="material-img">
-              <span class="material-detail" style="text-align: center; font-size: 1.5 vmax;" id="material-5-name" >Material Detail 5 <span class="wa-header material-detail" id="material-5-amount">&times; 100</span></span>
-              <span style="width: calc(100% - 45px);" class="hidden wa-dropdown wa-dropdown--main" id="material-5-dropdown">
-                    <select class="wa-dropdown__select wa-dropdown__select--main" style="width: 100%;"></select>
-                </span>
-            </div>
+			<div class="material-section hidden" id="material-1">
+				<img src="" class="material-img">
+				<span class="material-detail" style="text-align: center; font-size: 1.5 vmax;" id="material-1-name"></span>
+				<span style="width: 50%;" class="hidden wa-dropdown wa-dropdown--main" id="material-1-dropdown">
+					<select class="wa-dropdown__select wa-dropdown__select--main schematic-material-dropdown" style="width: 100%;"></select>
+				</span>
+				<input style="width: 25%; display:inline;" class="wa-input hidden" id="material-1-quality" type="hidden" step="1" min="0" max="10" placeholder="Q:">
+			</div>
+			<div class="material-section hidden" id="material-3">
+				<img src="" class="material-img">
+				<span class="material-detail" style="text-align: center; font-size: 1.5 vmax;" id="material-3-name"></span>
+				<span style="width: 50%;" class="hidden wa-dropdown wa-dropdown--main" id="material-3-dropdown">
+					<select class="wa-dropdown__select wa-dropdown__select--main schematic-material-dropdown" style="width: 100%;"></select>
+				</span>
+				<input style="width: 25%; display:inline;" class="wa-input hidden" id="material-3-quality" type="hidden" step="1" min="0" max="10" placeholder="Q:">
+			</div>
+			<div class="material-section hidden" id="material-5">
+				<img src="" class="material-img">
+				<span class="material-detail" style="text-align: center; font-size: 1.5 vmax;" id="material-5-name"></span>
+				<span style="width: calc(100% - 45px);" class="hidden wa-dropdown wa-dropdown--main" id="material-5-dropdown">
+					<select class="wa-dropdown__select wa-dropdown__select--main schematic-material-dropdown" style="width: 100%;"></select>
+				</span>
+				<input style="width: 25%; display:inline;" class="wa-input hidden" id="material-5-quality" type="hidden" step="1" min="0" max="10" placeholder="Q:">
+			</div>
           </div>
-          <div class="col-12 schem-detail" id="schem-detail">Something Something</div>
+          <div class="col-12 schem-detail" id="schem-detail"></div>
         </div>
           <div class="schem-lower">
             <div class="stat-bar-wrapper" id="stat-bar-0">
@@ -105,32 +104,26 @@
               <span class="stat-bar-label right"></span>
             </div>
           </div>
-        </div>
       </div> 
     </div>
     
     <div class="nav">
-      <a href="https://worldsadrift.com" class="nav-logo-wrapper" target="_blank"><img src="https://cdn.glitch.com/207b7d3e-84f3-40e3-b2ba-fb11865124a8%2Fadrift%20circle.png?1498372819425" class="nav-logo"></a>
-      <a href="/servers/" class="nav-link">Servers</a>
-      <a href="http://steamcommunity.com/sharedfiles/filedetails/?id=932986882" target="_blank" class="nav-link">Guide</a>
-      <a href="/calc/" class="nav-link active">Shipyard</a>
-      
-      <div class="right">
+      <div class="left">
         <div id="server-status-euw" class="nav-server-container">
           <div>EU West <div id="eu_west-status" class="nav-server-status"></div></div>
-          <div style="font-size:10px;"><span>Population:</span>&nbsp<span id="eu_west-pop" class="nav-server-population">???</span></div>
+          <div style="font-size:10px;"><span>Population:</span>&nbsp;<span id="eu_west-pop" class="nav-server-population">???</span></div>
         </div>
         <div id="server-status-use" class="nav-server-container">
           <div>US East <div id="us_east-status" class="nav-server-status"></div></div>
-          <div style="font-size:10px;"><span>Population:</span>&nbsp<span id="us_east-pop" class="nav-server-population">???</span></div>
+          <div style="font-size:10px;"><span>Population:</span>&nbsp;<span id="us_east-pop" class="nav-server-population">???</span></div>
         </div>
         <div id="server-status-eue" class="nav-server-container">
           <div>EU East <div id="eu_east-status" class="nav-server-status"></div></div>
-          <div style="font-size:10px;"><span>Population:</span>&nbsp<span id="eu_east-pop" class="nav-server-population">???</span></div>
+          <div style="font-size:10px;"><span>Population:</span>&nbsp;<span id="eu_east-pop" class="nav-server-population">???</span></div>
         </div>
         <div id="server-status-usw" class="nav-server-container">
           <div>US West <div id="us_west-status" class="nav-server-status"></div></div>
-          <div style="font-size:10px;"><span>Population:</span>&nbsp<span id="us_west-pop" class="nav-server-population">???</span></div>
+          <div style="font-size:10px;"><span>Population:</span>&nbsp;<span id="us_west-pop" class="nav-server-population">???</span></div>
         </div>
       </div>
     </div>
@@ -143,55 +136,63 @@
         <h4>
           <span class="wa-header">Ship Weight: </span><span class="wa-title">0 / 0</span> 
         </h4>
-      </div>
+		<div class="wa-panel schematic-mockup" style="margin-bottom: 10px;">
+		<input placeholder="Schematic Name" value="Generic Schematic" id="generic-schematic-name" style="width: 80%;" class="wa-input schem-name" disabled> <button style="display:inline-block; font-size: 24px; text-align: center; width: 9%; vertical-align: top;" class="wa-header add-btn" onclick="loadModalWithSchem('helm', 'edit');"><i class="fa fa-pencil" aria-hidden="true"></i></button> <button style="display:inline-block; font-size: 24px; text-align: center; width: 9%; vertical-align: top;" class="wa-header add-btn toggleable">&#43;</button> 
+		<div class="toggle-panel">
+			<div class="row schem-upper">
+				<div class="col-4">
+					<div class="material-section" id="generic-material-0"> <img src="https://res.cloudinary.com/shipyard/image/upload/v1517251942/WoodMetalResource.png" class="material-img"> <span class="material-detail" id="generic-material-0-name" style="font-size: 1.5 vmax;">Material Section 1</span> <span class="wa-header material-detail" id="generic-material-0-amount">100<span id="generic-material-0-type" style="font-size: 10px">&times; Aluminium [10]</span></span> </div>
+					<div class="material-section" id="generic-material-2"> <img src="https://res.cloudinary.com/shipyard/image/upload/v1517251942/WoodMetalResource.png" class="material-img"> <span class="material-detail" id="generic-material-2-name" style="font-size: 1.5 vmax;">Material Section 3</span> <span class="wa-header material-detail" id="generic-material-2-amount">100<span id="generic-material-2-type" style="font-size: 10px">&times; Aluminium [10]</span></span> </div>
+					<div class="material-section" id="generic-material-4"> <img src="https://res.cloudinary.com/shipyard/image/upload/v1517251942/WoodMetalResource.png" class="material-img"> <span class="material-detail" id="generic-material-4-name" style="font-size: 1.5 vmax;">Material Section 5</span> <span class="wa-header material-detail" id="generic-material-4-amount">100<span id="generic-material-4-type" style="font-size: 10px">&times; Aluminium [10]</span></span> </div>
+				</div>
+				<div class="col-4">
+					<img height="150px" id="generic-schem-pic" src="https://res.cloudinary.com/shipyard/image/upload/v1515844301/mounted_box.png"> 
+					<div style="display:block; text-align: center; background-color: rgba(0,0,0,0.3); width: 100%; height: 100%;" id="generic-schem-weight">0 kg</div>
+				</div>
+				<div class="col-4">
+					<div class="material-section" id="generic-material-1"> <img src="https://res.cloudinary.com/shipyard/image/upload/v1517251942/WoodMetalResource.png" class="material-img"> <span class="material-detail" id="generic-material-1-name" style="font-size: 1.5 vmax;">Material Section 2</span> <span class="wa-header material-detail" id="generic-material-1-amount">40<span id="generic-material-1-type" style="font-size: 10px">&times; Aluminium [10]</span></span> </div>
+					<div class="material-section" id="generic-material-3"> <img src="https://res.cloudinary.com/shipyard/image/upload/v1517251942/WoodMetalResource.png" class="material-img"> <span class="material-detail" id="generic-material-3-name" style="font-size: 1.5 vmax;">Material Section 4</span> <span class="wa-header material-detail" id="generic-material-3-amount">100<span id="generic-material-3-type" style="font-size: 10px">&times; Aluminium [10]</span></span> </div>
+					<div class="material-section" id="generic-material-5"> <img src="https://res.cloudinary.com/shipyard/image/upload/v1517251942/WoodMetalResource.png" class="material-img"> <span class="material-detail" id="generic-material-5-name" style="font-size: 1.5 vmax;">Material Section 6</span> <span class="wa-header material-detail" id="generic-material-5-amount">100<span id="generic-material-5-type" style="font-size: 10px">&times; Aluminium [10]</span></span> </div>
+				</div>
+				<div class="col-12 schem-detail" id="generic-schem-detail"> Helm component for attaching to ships: this is needed to pilot a ship. </div>
+			</div>
+			<div class="schem-lower">
+				<div class="stat-bar-wrapper" id="generic-stat-bar-0">
+					<div class="stat-bar-meter" style="width: 50%;"></div>
+					<span class="stat-bar-label left">Stat 1</span> <span class="stat-bar-label right">50</span> 
+				</div>
+				<div class="stat-bar-wrapper" id="generic-stat-bar-1">
+					<div class="stat-bar-meter width0"></div>
+					<span class="stat-bar-label left"></span> <span class="stat-bar-label right"></span> 
+				</div>
+				<div class="stat-bar-wrapper" id="generic-stat-bar-2">
+					<div class="stat-bar-meter width0"></div>
+					<span class="stat-bar-label left"></span> <span class="stat-bar-label right"></span> 
+				</div>
+				<div class="stat-bar-wrapper" id="generic-stat-bar-3">
+					<div class="stat-bar-meter width0"></div>
+					<span class="stat-bar-label left"></span> <span class="stat-bar-label right"></span> 
+				</div>
+				<div class="stat-bar-wrapper" id="generic-stat-bar-4">
+					<div class="stat-bar-meter width0"></div>
+					<span class="stat-bar-label left"></span> <span class="stat-bar-label right"></span> 
+				</div>
+			</div>
+		</div>
+	</div>
+  </div>
 
       <div class="col-6 wa-panel">
         <h2 class="wa-title" style="text-align:center">
           Add Schematic
         </h2>
         <button class="accordion">Basics</button>
-            <div class="panel">
-              <ul>
-                <li>Helm <a href="javascript:void(0)" onclick="openModal('helm')">(+) Expand</a></li>
-                <li>Helm of the Claw <a href="javascript:void(0)" onclick="openModal('helm_of_the_claw')">(+) Expand</a></li>
-              </ul>
-            </div>
-            <button class="accordion">Sky Core</button>
-            <div class="panel">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-            </div>
-            <button class="accordion">Structural</button>
-            <div class="panel">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-            </div>
-            <button class="accordion">Storage</button>
-            <div class="panel">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-            </div>
-            <button class="accordion">Decoration</button>
-            <div class="panel">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-            </div>
+		<div class="panel">
+			<h3><a href="javascript:void(0)" onclick="loadModalWithSchem('helm', 'default')">Helm <i class="fa fa-plus-square" aria-hidden="true"></i></a></h3>
+			<h3><a href="javascript:void(0)" onclick="loadModalWithSchem('helm_of_the_claw', 'default')">Helm of the Claw <i class="fa fa-plus-square" aria-hidden="true"></i></a></h3>
+			<h3><a href="javascript:void(0)" onclick="loadModalWithSchem('sail', 'default')">Sail <i class="fa fa-plus-square" aria-hidden="true"></i></a></h3>
+		</div>
       </div>
-      <!--<div class="col-4 wa-panel">
-        <h2 class="wa-title" style="text-align:center">
-          Ship Speed Calculator
-        </h2>
-        
-        <form style="text-align: center">
-          <div style="display: block; width: 100%; padding-bottom: 5px;">
-            <label for="weight" style="width: 50%">Ship Weight:</label>
-            <input id="weight" style="width: 50%" class="wa-input" type="number" step="1" min="1" placeholder="Weight">
-          </div>
-          <div style="display: block; width: 100%">
-            <label for="weight" style="width: 50%"> Total Power:</label>
-            <input id="power" style="width: 50%" class="wa-input" type="number" step="1" min="1" placeholder="Power">
-          </div>
-        </form>
-        
-        <p style="text-align: center;"><span style="font-weight: 700" id="speed">0</span> <span style="text-transform: uppercase; font-size: 14px; letter-spacing: 1px">knots</span></p>
-        
-      </div>-->
     </div>
             
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
